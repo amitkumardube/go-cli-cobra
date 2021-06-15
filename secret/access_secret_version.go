@@ -40,6 +40,6 @@ func AccessSecretVersion(w io.Writer, name string) (string , error) {
 
 	// WARNING: Do not print the secret in a production environment - this snippet
 	// is showing how to access the secret material.
-	fmt.Fprintf(w, "Plaintext: %s\n", string(result.Payload.Data))
+	//fmt.Fprintf(w, "Plaintext: %s\n", string(result.Payload.Data))
 	return string(result.Payload.Data) , nil
 }

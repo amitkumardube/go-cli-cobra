@@ -16,10 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
-	"os"
 
-	"github.com/amitkumardube/go-cli-cobra/secret"
 	"github.com/spf13/cobra"
 )
 
@@ -29,14 +26,16 @@ var secretCmd = &cobra.Command{
 	Short: "operations on secrets",
 	Long: `This command allows operation on secrets
 			The operations can be read or write`,
+	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		// here we defines the operations logic for this command
 
-		secret_value , err := secret.AccessSecretVersion(os.Stdout,"test")
+/*		secret_value , err := secret.AccessSecretVersion(os.Stdout,"projects/my-first-project-298218/secrets/test/versions/latest")
 		if err != nil {
 			cobra.CheckErr(err.Error())
 		}
 		fmt.Println(secret_value)
+		*/
 	},
 }
 
