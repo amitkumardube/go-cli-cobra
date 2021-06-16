@@ -75,9 +75,9 @@ func init() {
 
 	// setting up flags for secret
 
-	getCmd.Flags().StringVarP(&secret_name, "secret", "s", "", "Project ID or Name or Number")
+	getCmd.Flags().StringVarP(&secret_name, "secret", "s", "", "Secret Name")
 	getCmd.MarkFlagRequired("secret")
 	
 	// setting up flags for secret
-	getCmd.Flags().StringVarP(&version, "version", "v", version , "Project ID or Name or Number")
+	getCmd.Flags().StringVarP(&version, "version", "v", version , "Secret Version")
 }
