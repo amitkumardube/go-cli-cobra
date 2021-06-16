@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 package cmd
-
+/*
 import (
 	"fmt"
 	"os"
@@ -78,6 +78,8 @@ func init() {
 	getCmd.Flags().StringVarP(&secret_name, "secret", "s", "", "Secret Name")
 	getCmd.MarkFlagRequired("secret")
 	
-	// setting up flags for secret
+	// setting up flags for version
 	getCmd.Flags().StringVarP(&version, "version", "v", version , "Secret Version")
 }
+
+*/

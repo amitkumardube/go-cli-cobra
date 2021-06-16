@@ -9,5 +9,6 @@ require (
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.7.0
 	golang.org/x/exp v0.0.0-20200224162631-6cc2880d07d6 // indirect
+	google.golang.org/api v0.48.0
 	google.golang.org/genproto v0.0.0-20210614182748-5b3b54cad159
 )

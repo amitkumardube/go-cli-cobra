@@ -1,5 +1,6 @@
-package secret
 
+package secret
+/*
 import (
 	"context"
 	"fmt"
@@ -43,3 +44,5 @@ func AccessSecretVersion(w io.Writer, name string) (string , error) {
 	//fmt.Fprintf(w, "Plaintext: %s\n", string(result.Payload.Data))
 	return string(result.Payload.Data) , nil
 }
+
+*/
