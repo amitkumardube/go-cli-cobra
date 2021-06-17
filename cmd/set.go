@@ -19,25 +19,27 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/amitkumardube/go-cli-cobra/common"
 )
+
+
+var file_name = common.Get_env("HOME")+"/.cc.json"
+var new_project string
 
 // setCmd represents the set command
 var setCmd = &cobra.Command{
 	Use:   "set",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "set utility metadata",
+	Long: `Sets various utility metdata like project etc`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("set called")
+		common.Write_file(file_name , "cli.project_id",new_project)
+		fmt.Println("Project ID "+new_project+" has been successfully set in CLI.")
 	},
 }
 
 func init() {
-	projectCmd.AddCommand(setCmd)
+	rootCmd.AddCommand(setCmd)
+
 
 	// Here you will define your flags and configuration settings.
 
@@ -48,4 +50,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// setCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	setCmd.Flags().StringVarP(&new_project, "project-id", "p", "" , "Project ID or Number")
+	setCmd.MarkFlagRequired("project-id")
 }

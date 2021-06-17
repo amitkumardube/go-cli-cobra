@@ -16,7 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-
 	"github.com/spf13/cobra"
 )
 
@@ -24,8 +23,8 @@ import (
 var secretCmd = &cobra.Command{
 	Use:   "secret",
 	Short: "operations on secrets",
-	Long: `This command allows operation on secrets
-			The operations can be read or write`,
+	Long: `This command allows operation on secrets 
+The operations can be read or write`,
 	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		// here we defines the operations logic for this command
