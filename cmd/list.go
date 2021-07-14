@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"os"
-
 	"github.com/spf13/cobra"
 
 	"github.com/amitkumardube/go-cli-cobra/common"
@@ -49,10 +48,17 @@ func init() {
 	secretCmd.AddCommand(listCmd)
 
 	// Getting the default compute instance project_id
+	// if project_id is not set then consider using the default project id where is compute instance lies
 
-	project_id, err := common.Get_project_id()
-
-	// checking for error. If error found then exit with status 1
+	var project_id string
+	var err error
+	conf := common.Read_file(file_name)
+	if conf.Cli.Project_id == "" {
+		project_id, err = common.Get_project_id()
+		
+	}else {
+		project_id = conf.Cli.Project_id
+	}
 	if err != nil {
 		cobra.CheckErr(err.Error())
 	}
