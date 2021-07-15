@@ -52,16 +52,19 @@ func init() {
 
 	var project_id string
 	var err error
-	conf := common.Read_file(file_name)
-	if conf.Cli.Project_id == "" {
-		project_id, err = common.Get_project_id()
+/*	conf := common.Read_file(file_name)
+	if conf.Cli.Project_id == "" {*/
+	project_id, err = common.Get_project_id()
+	if err != nil {
+		cobra.CheckErr(err.Error())
+	}
 		
-	}else {
+/*	}else {
 		project_id = conf.Cli.Project_id
 	}
 	if err != nil {
 		cobra.CheckErr(err.Error())
-	}
+	}*/
 
 	// Here you will define your flags and configuration settings.
 

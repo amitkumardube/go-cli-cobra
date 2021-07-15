@@ -16,13 +16,13 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"github.com/amitkumardube/go-cli-cobra/common"
-
+	"github.com/amitkumardube/go-cli-cobra/secret"
+	"os"
 	"github.com/spf13/cobra"
 )
 
-var secret_key string
+var secret_key, project_num string
 
 // addversionCmd represents the addversion command
 var addversionCmd = &cobra.Command{
@@ -30,7 +30,11 @@ var addversionCmd = &cobra.Command{
 	Short: "Add secret version in project",
 	Long: `This command will add secret version to an existing secret in a GCP project.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("create called")
+		full_secret_key_path := "projects/" + project_num + "/secrets/"+secret_key
+		err := secret.AddSecretVersion(os.Stdout , full_secret_key_path)
+		if err != nil {
+			cobra.CheckErr(err.Error())
+		}
 	},
 }
 
@@ -55,7 +59,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addversionCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	addversionCmd.Flags().StringVarP(&project, "project", "p", project_id, "Project ID or Number")
+	addversionCmd.Flags().StringVarP(&project_num, "project", "p", project_id, "Project ID or Number")
 	addversionCmd.Flags().StringVarP(&secret_key, "secret-key", "s", "", "Secret Key")
 	addversionCmd.MarkFlagRequired("secret-key")
 }

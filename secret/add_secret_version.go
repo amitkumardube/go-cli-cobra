@@ -12,7 +12,7 @@ import (
 
 // addSecretVersion adds a new secret version to the given secret with the
 // provided payload.
-func addSecretVersion(w io.Writer, parent string) error {
+func AddSecretVersion(w io.Writer, parent string) error {
 	// parent := "projects/my-project/secrets/my-secret"
 
 	// Get the payload to store. We are generate a random number and store as payload.
