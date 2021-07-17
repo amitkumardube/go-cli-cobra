@@ -19,7 +19,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+
+// display the valid arguments using double tab
+var validArgs []string = { "list" , "add-version" }
+
 // secretCmd represents the secret command
+
 var secretCmd = &cobra.Command{
 	Use:   "secret",
 	Short: "operations on secrets",
@@ -36,6 +41,7 @@ The operations can be read or write`,
 		fmt.Println(secret_value)
 		*/
 	},
+	ValidArgs: validArgs,
 }
 
 func init() {
