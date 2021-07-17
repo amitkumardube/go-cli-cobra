@@ -20,9 +20,6 @@ import (
 )
 
 
-// display the valid arguments using double tab
-var validArgs []string = { "list" , "add-version" }
-
 // secretCmd represents the secret command
 
 var secretCmd = &cobra.Command{
@@ -30,7 +27,7 @@ var secretCmd = &cobra.Command{
 	Short: "operations on secrets",
 	Long: `This command allows operation on secrets 
 The operations can be read or write`,
-	Args: cobra.MinimumNArgs(1),
+	Args: cobra.ExactValidArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		// here we defines the operations logic for this command
 
@@ -41,7 +38,8 @@ The operations can be read or write`,
 		fmt.Println(secret_value)
 		*/
 	},
-	ValidArgs: validArgs,
+	ValidArgs: []string{"list" , "add-version"},
+	//SuggestFor: []string{"gsm"},
 }
 
 func init() {

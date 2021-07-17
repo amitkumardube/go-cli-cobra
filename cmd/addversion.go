@@ -36,6 +36,7 @@ var addversionCmd = &cobra.Command{
 			cobra.CheckErr(err.Error())
 		}
 	},
+	SuggestFor: []string{"secret-value", "new-value"},
 }
 
 func init() {

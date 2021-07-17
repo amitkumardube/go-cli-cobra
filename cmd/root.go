@@ -19,7 +19,6 @@ import (
 	"fmt"
 	"os"
 	"github.com/spf13/cobra"
-	"strings"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
 )
@@ -35,10 +34,13 @@ It facilitates various GCP Operations`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
-	Args: cobra.MinimumNArgs(1),
-	Run: func(cmd *cobra.Command, args []string) { 
+	Args: cobra.OnlyValidArgs,
+	// commenting Run under root in order to make it non executable. This means a subcommand is required.
+	/*Run: func(cmd *cobra.Command, args []string) { 
 		fmt.Println("Arguments Provided : " + strings.Join(args, " "))
-	},
+	},*/
+	ValidArgs: []string{"set" , "secret"},
+	Version: "1.0.0",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
